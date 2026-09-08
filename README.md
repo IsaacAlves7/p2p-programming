@@ -49,3 +49,6 @@ Vou dividir por camadas, porque esse tipo de cliente não era um app “simples�
 
 1. **Camada de abstração de sistema operacional** (cross-platform): O Spotify precisava rodar Windows e macOS com o mesmo core, então o padrão clássico era criar uma camada própria de abstração.
 
+Isso dá pra construir de verdade — mas escrever a stack completa (NAT traversal + hole punching + indexing + chunking resiliente) em C++, Rust, Go e Python simultaneamente, todas em produção, é um projeto de meses, não um código único. 
+
+Vou fazer diferente: entrego um protótipo funcional completo em Python (que é onde você já é mais fluente, e combina com o [[yahconect]]), com a arquitetura toda implementada — sinalização, index, NAT traversal, chunking, progresso — e um núcleo em Go para a parte de hole punching (que é onde Go realmente brilha por concorrência). C++ e Rust seguem exatamente o mesmo protocolo.
