@@ -43,6 +43,8 @@ Tudo isso é muito mais fácil em C++ do que em linguagens gerenciadas naquela �
 2. Conforme o Spotify cresceu (2011–2015), entrou forte o uso de **Java** no backend. Isso coincidiu com a transição do P2P para um modelo mais CDN-centric e com a adoção de uma arquitetura de microsserviços mais clara. Java foi escolhido por estabilidade, tooling, JVM madura e facilidade de escalar times grandes. Até hoje, Java é uma das linguagens mais fortes no backend do Spotify. Já o **mobile** veio depois. O cliente **Android** começou em **Java** (antes do Kotlin existir) e o **iOS** em **Objective-C**. Esses clientes praticamente não usaram P2P; desde o início já dependiam mais de CDN, até por limitações de rede móvel e bateria. Em termos de **bancos de dados e infraestrutura**, eles usaram uma mistura de MySQL, soluções internas distribuídas, e depois sistemas como Cassandra. Scripts operacionais e automação usavam bastante **Python** e **Bash**.
 
 ## [P2P] Development
+<img width="628" height="484" alt="spotify-distribution-2011" src="https://github.com/user-attachments/assets/e5d68b95-0b2e-4263-bf55-f9d6e82e2450" />
+
 Vou seguir exatamente essa lógica como se estivéssemos reconstruindo mentalmente o cliente desktop antigo do Spotify, sem romantizar e sem abstrações vagas. A ideia aqui não é copiar código real (isso não existe publicamente), mas mostrar como ele necessariamente teria sido estruturado em C++, dadas as exigências técnicas citadas, estamos recriando a mesma funcionalidade.
 
 Vou dividir por camadas, porque esse tipo de cliente não era um app “simples”, era praticamente um sistema distribuído rodando na máquina do usuário.
